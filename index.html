@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espagne.ma | Immigration premium vers l'Espagne</title>
+    <style>
+      :root {
+        --bg: #070b1a;
+        --bg-soft: #111932;
+        --card: rgba(17, 25, 50, 0.75);
+        --line: rgba(255, 255, 255, 0.14);
+        --gold: #e7bc65;
+        --gold-soft: #f7dca6;
+        --text: #f6f8ff;
+        --muted: #bcc6e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, Segoe UI, Roboto, system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 0%, #203468 0%, var(--bg) 45%), var(--bg);
+        min-height: 100vh;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(8px);
+        background: rgba(7, 11, 26, 0.75);
+        border-bottom: 1px solid var(--line);
+        z-index: 10;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9rem 0;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.03em;
+      }
+
+      .brand span {
+        color: var(--gold);
+      }
+
+      .language-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .language-switcher button {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.4rem 0.85rem;
+        cursor: pointer;
+      }
+
+      .language-switcher button.active {
+        border-color: var(--gold);
+        color: #1b1f33;
+        background: linear-gradient(140deg, var(--gold) 0%, var(--gold-soft) 100%);
+        font-weight: 700;
+      }
+
+      .hero {
+        padding: 5rem 0 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+      }
+
+      .hero-card,
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 1.6rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: clamp(1.7rem, 4.5vw, 3rem);
+        line-height: 1.15;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.07rem;
+      }
+
+      .cta-row {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.8rem 1.1rem;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid var(--line);
+      }
+
+      .button.primary {
+        border-color: transparent;
+        color: #101321;
+        background: linear-gradient(140deg, var(--gold) 0%, var(--gold-soft) 100%);
+      }
+
+      .button.secondary {
+        color: var(--text);
+      }
+
+      .stat-list {
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .stat-list li {
+        padding: 0.75rem;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+      }
+
+      .section-title {
+        margin: 0 0 1rem;
+        font-size: clamp(1.4rem, 3.8vw, 2.2rem);
+      }
+
+      .residency-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .residency-card {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .residency-card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .residency-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+
+      .process {
+        margin: 2rem 0 4rem;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .step {
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--card);
+      }
+
+      .step strong {
+        color: var(--gold-soft);
+      }
+
+      footer {
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .arabic {
+        direction: rtl;
+        text-align: right;
+        font-family: "Tajawal", "Noto Naskh Arabic", Arial, sans-serif;
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .residency-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">Espagne<span>.ma</span></div>
+        <div class="language-switcher">
+          <button data-lang="fr" class="active">Français</button>
+          <button data-lang="ar">العربية</button>
+          <button data-lang="en">English</button>
+          <button data-lang="es">Español</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <article class="hero-card">
+            <h1 data-i18n="heroTitle"></h1>
+            <p class="subtitle" data-i18n="heroSubtitle"></p>
+            <div class="cta-row">
+              <a class="button primary" href="https://wa.me/212656587292" target="_blank" rel="noreferrer" data-i18n="whatsappBtn"></a>
+              <a class="button secondary" href="#residencies" data-i18n="allResidenciesBtn"></a>
+            </div>
+          </article>
+
+          <aside class="panel">
+            <h2 data-i18n="whyPremium"></h2>
+            <ul class="stat-list">
+              <li data-i18n="premiumItem1"></li>
+              <li data-i18n="premiumItem2"></li>
+              <li data-i18n="premiumItem3"></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="residencies" class="container">
+        <h2 class="section-title" data-i18n="residenciesTitle"></h2>
+        <div class="residency-grid" id="residencyGrid"></div>
+      </section>
+
+      <section class="container process">
+        <h2 class="section-title" data-i18n="processTitle"></h2>
+        <div class="steps">
+          <div class="step"><strong>1.</strong> <span data-i18n="step1"></span></div>
+          <div class="step"><strong>2.</strong> <span data-i18n="step2"></span></div>
+          <div class="step"><strong>3.</strong> <span data-i18n="step3"></span></div>
+          <div class="step"><strong>4.</strong> <span data-i18n="step4"></span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p data-i18n="footerText"></p>
+      </div>
+    </footer>
+
+    <script>
+      const content = {
+        fr: {
+          heroTitle: "Immigration Premium vers l'Espagne: visas et résidences sur mesure",
+          heroSubtitle:
+            "Accompagnement complet pour Visa Digital Nomad, Non Lucratif, changement de visa touriste vers résidence et dossier Cuenta Propia.",
+          whatsappBtn: "WhatsApp: +212 6 56 58 72 92",
+          allResidenciesBtn: "Voir toutes les résidences",
+          whyPremium: "Pourquoi notre service premium",
+          premiumItem1: "Audit personnalisé de votre profil et stratégie légale la plus sûre.",
+          premiumItem2: "Préparation intégrale du dossier, traductions et rendez-vous administratifs.",
+          premiumItem3: "Suivi jusqu'à la carte de résidence en Espagne.",
+          residenciesTitle: "Liste complète des résidences en Espagne",
+          processTitle: "Notre méthode en 4 étapes",
+          step1: "Diagnostic et sélection de la meilleure résidence.",
+          step2: "Collecte, validation et traduction des documents.",
+          step3: "Dépôt du dossier (consulat ou Espagne) et suivi officiel.",
+          step4: "Obtention du NIE/TIE et installation en Espagne.",
+          footerText: "Espagne.ma — Cabinet d'accompagnement immigration Espagne. Service en français, العربية, English et Español.",
+          residencies: [
+            ["Visa Digital Nomad", "Pour travailleurs à distance avec revenus étrangers stables."],
+            ["Résidence Non Lucrative", "Vivre en Espagne sans activité professionnelle locale."],
+            ["Changement Touriste → Résidence", "Solutions légales selon votre situation réelle et votre parcours."],
+            ["Résidence Cuenta Propia", "Création d'activité en Espagne comme indépendant/entrepreneur."],
+            ["Résidence de Travail (Cuenta Ajena)", "Contrat de travail avec employeur espagnol."],
+            ["Carte Famille de Citoyen UE", "Pour conjoint, enfants ou ascendants d'un citoyen européen."],
+            ["Regroupement Familial", "Réunification du conjoint et des enfants en Espagne."],
+            ["Résidence Étudiant + Travail", "Parcours études avec possibilité de travail autorisé."],
+            ["Résidence Hautement Qualifiée", "Pour profils experts et postes spécialisés."],
+            ["Golden Visa / investisseurs", "Options liées à l'investissement selon cadre légal actuel."],
+            ["Arraigo Social / Laboral / Formación", "Voies de régularisation par intégration en Espagne."],
+            ["Résidence Longue Durée", "Stabilisation après années de résidence légale."],
+          ],
+        },
+        ar: {
+          heroTitle: "خدمة هجرة بريميوم إلى إسبانيا: التأشيرات والإقامات باحترافية",
+          heroSubtitle:
+            "مواكبة كاملة لفيزا Digital Nomad والإقامة غير الربحية وتغيير فيزا السياحة إلى إقامة وملف العمل الحر Cuenta Propia.",
+          whatsappBtn: "واتساب: +212 6 56 58 72 92",
+          allResidenciesBtn: "عرض جميع أنواع الإقامة",
+          whyPremium: "لماذا خدمتنا بريميوم",
+          premiumItem1: "تشخيص دقيق لملفكم واختيار أفضل مسار قانوني.",
+          premiumItem2: "إعداد كامل للملف والترجمة والمواعيد الإدارية.",
+          premiumItem3: "متابعة شخصية إلى غاية الحصول على بطاقة الإقامة.",
+          residenciesTitle: "اللائحة الكاملة لأنواع الإقامة في إسبانيا",
+          processTitle: "منهجية العمل في 4 مراحل",
+          step1: "تقييم الحالة واختيار نوع الإقامة الأنسب.",
+          step2: "جمع الوثائق والتحقق منها وترجمتها.",
+          step3: "إيداع الملف ومتابعته رسميًا.",
+          step4: "الحصول على NIE/TIE والاستقرار في إسبانيا.",
+          footerText: "Espagne.ma — مرافقة احترافية للهجرة إلى إسبانيا بالفرنسية والعربية والإنجليزية والإسبانية.",
+          residencies: [
+            ["Digital Nomad", "إقامة للمشتغلين عن بُعد بدخل ثابت من خارج إسبانيا."],
+            ["الإقامة غير الربحية", "العيش في إسبانيا دون نشاط مهني محلي."],
+            ["تحويل سياحة إلى إقامة", "حلول قانونية حسب وضعيتكم الحالية."],
+            ["Cuenta Propia (عمل حر)", "إنشاء مشروع أو نشاط مهني مستقل في إسبانيا."],
+            ["إقامة العمل بعقد", "عقد عمل مع شركة إسبانية (Cuenta Ajena)."],
+            ["بطاقة عائلة مواطن أوروبي", "للزوج/الزوجة والأبناء وأفراد الأسرة."],
+            ["التجمع العائلي", "جمع الأسرة قانونيًا داخل إسبانيا."],
+            ["إقامة الدراسة مع العمل", "الدراسة مع إمكانية العمل المسموح."],
+            ["إقامة الكفاءات العالية", "لأصحاب الخبرات والمناصب المتخصصة."],
+            ["إقامة المستثمرين", "خيارات مرتبطة بالاستثمار وفق القانون المعمول به."],
+            ["Arraigo بأنواعه", "مسارات التسوية عبر الاندماج الاجتماعي أو المهني."],
+            ["الإقامة طويلة الأمد", "استقرار قانوني بعد سنوات من الإقامة."],
+          ],
+        },
+        en: {
+          heroTitle: "Premium Immigration Services to Spain: visas and residency solutions",
+          heroSubtitle:
+            "End-to-end support for Digital Nomad Visa, Non-Lucrative Residency, tourist visa to residency transition, and Cuenta Propia self-employment files.",
+          whatsappBtn: "WhatsApp: +212 6 56 58 72 92",
+          allResidenciesBtn: "View all residency options",
+          whyPremium: "Why choose our premium service",
+          premiumItem1: "Custom legal strategy based on your profile and goals.",
+          premiumItem2: "Full file preparation, translation and appointment management.",
+          premiumItem3: "Close follow-up until your Spanish residency card is issued.",
+          residenciesTitle: "Complete list of Spanish residency routes",
+          processTitle: "Our 4-step process",
+          step1: "Profile assessment and residency route selection.",
+          step2: "Document collection, verification and sworn translations.",
+          step3: "Application filing and active follow-up with authorities.",
+          step4: "NIE/TIE completion and relocation assistance.",
+          footerText: "Espagne.ma — Premium Spain immigration support in French, Arabic, English and Spanish.",
+          residencies: [
+            ["Digital Nomad Visa", "For remote workers with qualifying foreign income."],
+            ["Non-Lucrative Residency", "Live in Spain without local employment."],
+            ["Tourist Visa to Residency", "Legal pathways based on your real immigration situation."],
+            ["Cuenta Propia Residency", "Self-employment and business setup in Spain."],
+            ["Work Residency (Cuenta Ajena)", "Employment contract with a Spanish company."],
+            ["EU Family Member Card", "For spouse, children or ascendants of EU citizens."],
+            ["Family Reunification", "Bring close family members under legal residence."],
+            ["Student Residence + Work", "Study route with authorized work options."],
+            ["Highly Qualified Professional", "For expert profiles and specialized positions."],
+            ["Investor Residency", "Investment-based pathways under current rules."],
+            ["Arraigo Social / Laboral / Formación", "Regularization routes through integration."],
+            ["Long-Term Residency", "Permanent stability after years of legal stay."],
+          ],
+        },
+        es: {
+          heroTitle: "Servicio Premium de Inmigración a España: visados y residencias",
+          heroSubtitle:
+            "Acompañamiento integral para Visa Nómada Digital, Residencia No Lucrativa, cambio de visado de turista a residencia y expediente de Cuenta Propia.",
+          whatsappBtn: "WhatsApp: +212 6 56 58 72 92",
+          allResidenciesBtn: "Ver todas las residencias",
+          whyPremium: "Por qué elegir nuestro servicio premium",
+          premiumItem1: "Estrategia legal personalizada según su perfil.",
+          premiumItem2: "Preparación completa del expediente y gestión documental.",
+          premiumItem3: "Seguimiento hasta la obtención de su TIE en España.",
+          residenciesTitle: "Lista completa de residencias en España",
+          processTitle: "Nuestro método en 4 pasos",
+          step1: "Diagnóstico y selección de la vía de residencia.",
+          step2: "Recolección, validación y traducción de documentos.",
+          step3: "Presentación del expediente y seguimiento oficial.",
+          step4: "Obtención de NIE/TIE e instalación en España.",
+          footerText: "Espagne.ma — Asesoría premium de inmigración a España en francés, árabe, inglés y español.",
+          residencies: [
+            ["Visa Nómada Digital", "Para trabajadores remotos con ingresos del extranjero."],
+            ["Residencia No Lucrativa", "Vivir en España sin actividad laboral local."],
+            ["Cambio de Turista a Residencia", "Opciones legales según su situación real."],
+            ["Residencia por Cuenta Propia", "Actividad profesional o negocio propio en España."],
+            ["Residencia por Cuenta Ajena", "Contrato laboral con empresa española."],
+            ["Tarjeta de Familiar de Ciudadano UE", "Para cónyuge, hijos y ascendientes."],
+            ["Reagrupación Familiar", "Reunir legalmente a la familia en España."],
+            ["Estancia por Estudios + Trabajo", "Estudiar con opciones de trabajo autorizado."],
+            ["Profesional Altamente Cualificado", "Para perfiles técnicos y directivos."],
+            ["Residencia para Inversores", "Opciones vinculadas a inversión según normativa vigente."],
+            ["Arraigo Social / Laboral / Formación", "Vías de regularización por integración."],
+            ["Residencia de Larga Duración", "Estabilidad legal tras años de residencia."],
+          ],
+        },
+      };
+
+      const buttons = document.querySelectorAll("[data-lang]");
+      const fields = document.querySelectorAll("[data-i18n]");
+      const grid = document.getElementById("residencyGrid");
+
+      function render(lang) {
+        const data = content[lang];
+        document.documentElement.lang = lang;
+        document.body.classList.toggle("arabic", lang === "ar");
+
+        fields.forEach((field) => {
+          const key = field.getAttribute("data-i18n");
+          field.textContent = data[key];
+        });
+
+        grid.innerHTML = "";
+        data.residencies.forEach(([name, description]) => {
+          const card = document.createElement("article");
+          card.className = "residency-card";
+          card.innerHTML = `<h3>${name}</h3><p>${description}</p>`;
+          grid.appendChild(card);
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          button.classList.add("active");
+          render(button.dataset.lang);
+        });
+      });
+
+      render("fr");
+    </script>
+  </body>
+</html>
